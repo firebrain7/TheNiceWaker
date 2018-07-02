@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.exp.sleep">
+
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".App.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/moon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/moon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.exp.sleep.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <activity android:name=".Splash.GuideActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Activity.LoginActivity">
+
+        </activity>
+
+
+
+        <activity android:name=".Fragment.HomePageActivity" />
+        <activity
+            android:name=".Activity.AudioTestAcitivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <service
+            android:name=".Service.RecordingService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".Fragment.MainActivity" />
+        <activity
+            android:name=".Activity.SingleNight"
+            android:label="@string/title_activity_alarm"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".Activity.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
+    </application>
+
+</manifest>
